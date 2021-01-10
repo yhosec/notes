@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <meta charset="UTF-8">
+    <title>Notes</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <div class="row mb-2">
+        <div class="col-lg-2">
+            Title
+        </div>
+        <div class="col-lg-4">
+            <input
+                    type="text"
+                    class="form-control"
+                    th:value="${note.title}"
+                    readonly
+            >
+        </div>
+    </div>
+    <div class="row mb-2">
+        <div class="col-lg-2">
+            Notes
+        </div>
+        <div class="col-lg-4">
+                <textarea
+                        class="form-control"
+                        th:field="${note.note}"
+                        readonly
+                ></textarea>
+        </div>
+    </div>
+
+    <div class="row mb-2">
+        <div class="col-lg-6">
+            <a th:href="@{/notes}" class="btn btn-danger">Back</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>
