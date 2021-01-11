@@ -22,6 +22,9 @@ public class NotesService {
         return notesRepository.findById(id);
     }
 
+    public Optional<Notes> findByTitle(String title) {
+        return notesRepository.findByTitle(title);
+    }
     public Notes create(Notes notes) {
         notes.setCreatedAt(new Date());
         notesRepository.save(notes);
