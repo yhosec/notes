@@ -1,14 +1,14 @@
 package com.learn.notes.dto;
 
+import com.learn.notes.validation.UniqueTitle;
 import lombok.Data;
 import org.hibernate.validator.constraints.Length;
-import org.hibernate.validator.constraints.UniqueElements;
 
 import javax.validation.constraints.NotEmpty;
 
 @Data
 public class NotesCreateFormDto {
-    @UniqueElements
+    @UniqueTitle
     @NotEmpty
     @Length(max = 255)
     private String title;
