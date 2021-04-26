@@ -1,0 +1,24 @@
+version: '3'
+services:
+  mysql:
+    build:
+      context: .
+      dockerfile: DockerfileDb
+    image: mysql
+    container_name: mysql
+    environment:
+      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+      - MYSQL_DATABASE=notes
+
+  notes-app-sb:
+    build: .
+    image: notes-app-sb
+    container_name: notes-app-sb
+    environment:
+      - CONTAINER_ENV=dev
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mysql
+    links:
+      - mysql
